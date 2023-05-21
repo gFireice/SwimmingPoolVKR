@@ -1,0 +1,228 @@
+﻿<Page x:Class="Pool.Page.AuthorizationWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pool.Page"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1980"
+      Title="AuthorizationWindow">
+    <Page.Resources>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox" >
+
+            <Setter Property="Foreground"  Value="#FF4C537D"></Setter>
+            <Setter Property="BorderBrush"  Value="#FF1F243E"></Setter>
+            <Setter Property="Background" Value="#FF131D54"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,0,0,0"></Setter>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Template">
+
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid x:Name="root" Width="400" Height="50" SnapsToDevicePixels="True">
+                            <Border x:Name="Backgroundd" BorderThickness="3" CornerRadius="10" Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"></Border>
+                            <ScrollViewer  x:Name="PART_ContentHost" BorderThickness="0" 
+                                          IsTabStop="False"
+                                          Background="{x:Null}"
+                                          TextElement.Foreground="{TemplateBinding Foreground}"
+                                          Padding="{TemplateBinding Padding}"></ScrollViewer>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True" >
+                                <Setter Property="BorderBrush" Value="#FF1F246E"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ButtoEntry" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"></Setter>
+            <Setter Property="Foreground"  Value="#FF4C537D"></Setter>
+            <Setter Property="BorderBrush"  Value="#FF1F243E"></Setter>
+            <Setter Property="Background" Value="#FF131D54"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="5"
+                                BorderBrush="#FF1F243E" CornerRadius="10" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                        </Border>
+
+                        <ControlTemplate.Triggers >
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF080B4B" Duration="0:0:0.020"></ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF080B1B" Duration="0:0:0.020"></ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color" To="#FF1F246E" Duration="0:0:0.020"></ColorAnimation>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF080B3B" Duration="0:0:0.020"></ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color" To="#FF1F243E" Duration="0:0:0.020"></ColorAnimation>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF131D54" Duration="0:0:0.020"></ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="PasswordStyle" TargetType="PasswordBox" >
+
+            <Setter Property="Foreground"  Value="#FF4C537D"></Setter>
+            <Setter Property="BorderBrush"  Value="#FF1F243E"></Setter>
+            <Setter Property="Background" Value="#FF131D54"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,0,0,0"></Setter>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Template">
+
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Grid x:Name="root" Width="400" Height="50" SnapsToDevicePixels="True">
+                            <Border x:Name="Backgroundd" BorderThickness="3" CornerRadius="10" Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"></Border>
+                            <ScrollViewer  x:Name="PART_ContentHost" BorderThickness="0" 
+                                          IsTabStop="False"
+                                          Background="{x:Null}"
+                                          TextElement.Foreground="{TemplateBinding Foreground}"
+                                          Padding="{TemplateBinding Padding}"></ScrollViewer>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True" >
+                                <Setter Property="BorderBrush" Value="#FF1F246E"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="700"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border CornerRadius="50" Grid.Column="1" Grid.Row="1" Background="#FF011127">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Авторизация" Foreground="White" FontSize="50"></TextBlock>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+
+
+                    <TextBox x:Name="LoginBox" Margin="0 0 0 35" Style="{StaticResource TextBoxStyle}" >
+
+                    </TextBox>
+                    <PasswordBox  Style="{StaticResource PasswordStyle}" x:Name="PasswordBoxAuth"  Visibility="Visible" Width="400" Height="50"  ></PasswordBox>
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextBoxAuth" Visibility="Collapsed"  Text="Password"  Width="400" Height="50" ></TextBox>
+
+                </StackPanel>
+
+                <!--<TextBlock x:Name="TxtBlocPassBox" Margin="112,142,88,0" FontSize="25"   
+                           Width="400" Height="32" Grid.Row="1"
+                            Foreground="#FF4C537D" Text="Password" VerticalAlignment="Top"
+                             IsHitTestVisible="False"
+                           >
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                
+                                <DataTrigger Binding="{Binding Text, ElementName=TextBoxAuth}"  Value="">
+                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                </DataTrigger>
+                               
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>-->
+                <!--<TextBlock x:Name="TxtBlocPassPass" Margin="112,142,88,0" FontSize="25"   
+                           Width="400" Height="32" Grid.Row="1"
+                            Foreground="#FF4C537D" Text="Password" VerticalAlignment="Top"
+                             IsHitTestVisible="False"
+                           >
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                               
+                                <DataTrigger Binding="{Binding Password, ElementName=PasswordBoxAuth}"   Value="">
+                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>-->
+
+
+                <TextBlock  IsHitTestVisible="False" FontSize="25" Grid.Row="1"  
+                           Width="400" Height="40"
+                            Foreground="#FF4C537D" Text="Login" Margin="112,58,88,136">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=LoginBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2">
+                    <StackPanel Margin="0 0 0 20" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <CheckBox  Checked="ShowPasvordCheak_Checked" Unchecked="ShowPasvordCheak_Unchecked" IsChecked="False" x:Name="ShowPasvordCheak" ></CheckBox>
+                        <TextBlock  Text="Show Password" Foreground="White"></TextBlock>
+                    </StackPanel>
+                    <Button Style="{StaticResource ButtoEntry}"  Click="ButtonNavigateMain_Click" x:Name="ButtonNavigateMain" Width="400" Height="50">
+                        <TextBlock Margin="0 0 0 0" FontSize="25" Text="Вход"></TextBlock>
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+
+        </Border>
+    </Grid>
+</Page>

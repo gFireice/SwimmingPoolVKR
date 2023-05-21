@@ -1,0 +1,122 @@
+﻿<Page x:Class="Pool.Page.EmployessPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pool.Page"
+      mc:Ignorable="d" 
+     d:DesignHeight="980" d:DesignWidth="1630"
+      Title="EmployessPage">
+
+    <Grid>
+        <ListView x:Name="lvEmployes"
+               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  d:ItemsSource="{d:SampleData ItemCount=8}" Background="Transparent"  BorderBrush="#00ABADB3">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Height="500"
+                          Width="300"
+                          Background="LightGray" CornerRadius="20">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.3*"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Row="1"
+                                      Grid.Column="1">
+                                <StackPanel Orientation="Horizontal"  >
+                                    <TextBlock FontSize="15" Text="Фамилия:"
+                            ></TextBlock>
+                                    <TextBlock Margin="3 0 0 0" FontSize="15" Text="{Binding LastName}"
+                            ></TextBlock>
+
+                                </StackPanel>
+                                <StackPanel Margin="0 5 0 0" Orientation="Horizontal"  >
+                                    <TextBlock FontSize="15" Text="Имя:"
+                            ></TextBlock>
+                                    <TextBlock Margin="3 0 0 0" FontSize="15" Text="{Binding FirstName}"
+                            ></TextBlock>
+                                </StackPanel>
+
+                                <StackPanel Margin="0 5 0 0" Orientation="Horizontal"  >
+                                    <TextBlock FontSize="15" Text="Отчество:"
+                            ></TextBlock>
+                                    <TextBlock Margin="3 0 0 0" FontSize="15" Text="{Binding SurName}"
+                            ></TextBlock>
+                                </StackPanel>
+
+                                <StackPanel Margin="0 5 0 0" Orientation="Horizontal"  >
+                                    <TextBlock FontSize="15" Text="Дата рождения:"
+                            ></TextBlock>
+                                    <TextBlock Margin="3 0 0 0" FontSize="15" Text="{Binding BirthDay}"
+                            ></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+
+
+
+                            <StackPanel Margin="10 0 0 0" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="2" >
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBlock FontSize="15" Text="Дата регистрации:"></TextBlock>
+                                    <TextBlock  Margin="10 0 0 0" FontSize="15" 
+                                                Text="{Binding RegistraarionDate}"></TextBlock>
+
+                                </WrapPanel>
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBlock FontSize="15" Text="Почта:"></TextBlock>
+                                    <TextBlock  Margin="10 0 0 0" FontSize="15" 
+                                                Text="{Binding Mail}"></TextBlock>
+
+                                </WrapPanel>
+
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBlock FontSize="15" Text="Телефон:"></TextBlock>
+                                    <TextBlock  Margin="10 0 0 0" FontSize="15" 
+                                                Text="{Binding Phone}"></TextBlock>
+
+                                </WrapPanel >
+
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBlock FontSize="15" Text="Адррес паспорта:"></TextBlock>
+                                    <TextBlock  Margin="10 0 0 0" FontSize="15" 
+                                                Text="{Binding PlaceRegistration}"></TextBlock>
+
+                                </WrapPanel>
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBlock FontSize="15" Text="Serial:"></TextBlock>
+                                    <TextBlock  Margin="10 0 0 0" FontSize="15" 
+                                                Text="{Binding SerialPassport}"></TextBlock>
+
+                                </WrapPanel>
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBlock FontSize="15" Text="Номер паспорта:"></TextBlock>
+                                    <TextBlock  Margin="10 0 0 0" FontSize="15" 
+                                                Text="{Binding NumPassport}"></TextBlock>
+
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <TextBlock FontSize="15" Text="Дата получения:"></TextBlock>
+                                    <TextBlock  Margin="10 0 0 0" FontSize="15" 
+                                                Text="{Binding DateGet}"></TextBlock>
+
+                                </WrapPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
