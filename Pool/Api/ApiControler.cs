@@ -67,8 +67,16 @@ namespace Pool.Api
         {
             using (WebClient webClient = new WebClient())
             {
-                byte[] data = webClient.DownloadData($"http://localhost:8081/api/employess/{path}");
-                return data;
+                try
+                {
+                    byte[] data = webClient.DownloadData($"http://localhost:8081/api/image/{path}");
+                    return data;
+                }
+                catch (WebException)
+                {
+                    Console.WriteLine($"Error downloading file {path}");
+                    return null;
+                }
             }
         }
 

@@ -83,7 +83,7 @@
                     
                     <Border x:Name="BorderElImage"  Width="70" Height="70" CornerRadius="100"  BorderThickness="1 1 1 1" BorderBrush="White">
                         <Border.Background>
-                            <ImageBrush x:Name="BrImUser" Stretch="UniformToFill"  ImageSource="{Binding Path=ByteImageUser}"/>
+                            <ImageBrush x:Name="BrImUser" Stretch="UniformToFill" ImageSource="\Image\ic_baseline-people-alt.png" />
                         </Border.Background>
                         <!--<Image x:Name="ElImage">
                             <Image.Source>

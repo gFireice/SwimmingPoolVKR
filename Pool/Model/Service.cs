@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pool.Model
 {
-    public class Service
+    public partial class Service
     {
         public int ServiceID { get; set; }
 
@@ -15,5 +15,7 @@ namespace Pool.Model
         public decimal Cost { get; set; }
 
         public int TypeOfAgeID { get; set; }
+
+        public string image { get; set; }
     }
 }

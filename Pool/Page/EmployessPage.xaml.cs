@@ -26,13 +26,14 @@ namespace Pool.Page
         {
             InitializeComponent();
             Filter();
+            
         }
 
         public async void Filter()
         {
             List<Model.Employess> employesses = new List<Model.Employess>();
             employesses = await AppData.Context.GetAllEmplooyes();
-
+            
             lvEmployes.ItemsSource = employesses;
         }
 

@@ -45,16 +45,22 @@ namespace Pool.Page
         public async void FormFilter()
         {
             FioTxtBox.Text = AuthUser.User.FirstName + " " + AuthUser.User.LastName + " " + AuthUser.User.SurName;
+
             byte[] imageData = AppData.Context.GetImage(AuthUser.User.image);// массив байт содержащий изображение
-            BitmapImage bitmap = new BitmapImage();  // создание нового экземпляра BitmapImage
-            bitmap.BeginInit();  // начало инициализации BitmapImage
-            bitmap.CreateOptions = BitmapCreateOptions.None;
-            bitmap.CacheOption = BitmapCacheOption.OnLoad;
-            bitmap.Rotation = Rotation.Rotate0;
-            bitmap.StreamSource = new MemoryStream(imageData); // загрузка изображения из массива байт
-            bitmap.EndInit(); // завершение инициализации BitmapImage
-            ImageSource imageSource = bitmap; // приведение BitmapImage к типу ImageSource
-            BrImUser.ImageSource = imageSource;
+            if (imageData != null )
+            {
+                BitmapImage bitmap = new BitmapImage();  // создание нового экземпляра BitmapImage
+                bitmap.BeginInit();  // начало инициализации BitmapImage
+                bitmap.CreateOptions = BitmapCreateOptions.None;
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.Rotation = Rotation.Rotate0;
+                bitmap.StreamSource = new MemoryStream(imageData); // загрузка изображения из массива байт
+                bitmap.EndInit(); // завершение инициализации BitmapImage
+                ImageSource imageSource = bitmap; // приведение BitmapImage к типу ImageSource
+                BrImUser.ImageSource = imageSource;
+            }
+
+
             switch (AuthUser.User.TypeOfEmployessID)
             {
                 case 1:
