@@ -34,6 +34,15 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" Grid.Row="1" Background="AliceBlue" CornerRadius="20">
+                                <Grid>
+                                <Image  x:Name="ElImage">
+                                <Image.Source>
+                                    <Binding Path="ByteImage" TargetNullValue="{x:Null}"/>
+                                </Image.Source>
+                            </Image>
+                                </Grid>
+                            </Border>
                             <StackPanel Grid.Row="1"
                                       Grid.Column="1">
                                 <StackPanel Orientation="Horizontal"  >

@@ -102,6 +102,7 @@
     <Compile Include="Model\Employess.cs" />
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\GroupLesson.cs" />
+    <Compile Include="Model\imageUser.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderService.cs" />
     <Compile Include="Model\Service.cs" />

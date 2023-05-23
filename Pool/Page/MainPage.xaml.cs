@@ -1,6 +1,8 @@
-﻿using Pool.Class;
+﻿using Pool.Api;
+using Pool.Class;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,11 +34,15 @@ namespace Pool.Page
             BtnBorderClient.Visibility = Visibility.Visible;
             NavigatinControl.MainFrame = this.NavigationFrame;
             FormFilter();
+
+
+            
         }
 
         public async void FormFilter()
         {
             FioTxtBox.Text = AuthUser.User.FirstName + " " + AuthUser.User.LastName + " " + AuthUser.User.SurName;
+            
             switch (AuthUser.User.TypeOfEmployessID)
             {
                 case 1:

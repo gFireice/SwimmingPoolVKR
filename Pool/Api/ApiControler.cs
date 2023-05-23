@@ -6,6 +6,10 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Pool.Model;
+using System.Drawing;
+using System.Windows.Controls;
+using System.IO;
+using System.Net;
 
 namespace Pool.Api
 {
@@ -58,5 +62,15 @@ namespace Pool.Api
 
             return subscriptions;
         }
+
+        public Byte[] GetImage(string path)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                byte[] data = webClient.DownloadData($"http://localhost:8081/api/employess/{path}");
+                return data;
+            }
+        }
+
     }
 }

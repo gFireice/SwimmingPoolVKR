@@ -77,14 +77,18 @@
                 <StackPanel Orientation="Horizontal" Margin="0 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Right">
                     <TextBlock x:Name="FioTxtBox" FontFamily="Butler Bold" Margin="0 0 10 0" FontSize="24" VerticalAlignment="Center"
                                Text="FIO" Foreground="White"></TextBlock>
-                    <Ellipse   Width="70" Height="70"  Stroke="White">
-                        <Ellipse.Fill>
-                            <ImageBrush x:Name="ImageEplloya" ImageSource="/Image/ic_baseline-people-alt.png"/>
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <Border x:Name="BorderElImage"  Width="70" Height="70" CornerRadius="100"  BorderThickness="1 1 1 1" BorderBrush="White">
+                        <Image x:Name="ElImage">
+                            <Image.Source>
+                                <Binding Path="ByteImageUser" TargetNullValue="{x:Null}"/>
+                            </Image.Source>
+
+                        </Image>
+                       
+                    </Border>
                   
                 </StackPanel>
-               
+             
             </Border>
             <Frame x:Name="NavigationFrame" Grid.Row="1"></Frame>
         </Grid>
