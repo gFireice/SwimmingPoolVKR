@@ -19,31 +19,7 @@ namespace Pool.Model
 
         
 
-        public Byte[] ByteImageUser
-        {
-            get
-            {
-                if (!String.IsNullOrEmpty(AuthUser.User.image) && !_isImageDownloaded)
-                {
-                    Byte[] _res;
-                    try
-                    {
-                        _res = AppData.Context.GetImage(AuthUser.User.image);
-                    }
-                    catch
-                    {
-                        _res = null;
-                    }
-                    SaveImage = _res;
-                    _isImageDownloaded = true;
-                    return _res;
-                }
-                else
-                {
-                    return SaveImage;
-                }
-            }
-        }
+       
 
         public Byte[] ByteImage
         {

@@ -8,6 +8,7 @@
       d:DesignHeight="1080" d:DesignWidth="1980"
       Title="MainPage">
     <Page.Resources>
+        
         <Style x:Key="ButtoAnim" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"></Setter>
             <Setter Property="Background" Value="#FF080B1B"></Setter>
@@ -77,16 +78,21 @@
                 <StackPanel Orientation="Horizontal" Margin="0 0 10 0" VerticalAlignment="Center" HorizontalAlignment="Right">
                     <TextBlock x:Name="FioTxtBox" FontFamily="Butler Bold" Margin="0 0 10 0" FontSize="24" VerticalAlignment="Center"
                                Text="FIO" Foreground="White"></TextBlock>
+                    
+                    
+                    
                     <Border x:Name="BorderElImage"  Width="70" Height="70" CornerRadius="100"  BorderThickness="1 1 1 1" BorderBrush="White">
-                        <Image x:Name="ElImage">
+                        <Border.Background>
+                            <ImageBrush x:Name="BrImUser" Stretch="UniformToFill"  ImageSource="{Binding Path=ByteImageUser}"/>
+                        </Border.Background>
+                        <!--<Image x:Name="ElImage">
                             <Image.Source>
                                 <Binding Path="ByteImageUser" TargetNullValue="{x:Null}"/>
                             </Image.Source>
 
-                        </Image>
-                       
+                        </Image>-->
                     </Border>
-                  
+
                 </StackPanel>
              
             </Border>

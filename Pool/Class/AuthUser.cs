@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pool.Class
 {
-     class AuthUser
+     public partial class AuthUser
     {
         public static Model.Employess User { get; set; } = new Model.Employess();
 
-
+        
     }
 }
