@@ -152,7 +152,7 @@
                     <TextBox x:Name="LoginBox" Margin="0 0 0 35" Style="{StaticResource TextBoxStyle}" >
 
                     </TextBox>
-                    <PasswordBox  Style="{StaticResource PasswordStyle}" x:Name="PasswordBoxAuth"  Visibility="Visible" Width="400" Height="50"  ></PasswordBox>
+                    <PasswordBox Style="{StaticResource PasswordStyle}" x:Name="PasswordBoxAuth"  Visibility="Visible" Width="400" Height="50"  ></PasswordBox>
                     <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextBoxAuth" Visibility="Collapsed"  Text="Password"  Width="400" Height="50" ></TextBox>
 
                 </StackPanel>

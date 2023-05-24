@@ -42,11 +42,7 @@
                                     <ImageBrush   Stretch="UniformToFill"  ImageSource="{Binding Path=ByteImage, TargetNullValue=defaultImage}"/>
                                         
                                     </Border.Background>
-                                    <!--<Image  x:Name="ElImage">
-                                <Image.Source>
-                                    <Binding Path="ByteImage" TargetNullValue="{x:Null}"/>
-                                </Image.Source>
-                            </Image>-->
+                                
                                 
                             </Border>
                             <StackPanel Grid.Row="1"

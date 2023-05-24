@@ -10,7 +10,7 @@ namespace Pool.Model
     {
         public int ServiceID { get; set; }
 
-        public string Title { get; set; }
+        public string Titel { get; set; }
 
         public decimal Cost { get; set; }
 

@@ -30,10 +30,25 @@
                                     <RowDefinition/>
 
                                 </Grid.RowDefinitions>
-                                <Border Width="250" Height="130" CornerRadius="20" Background="Black"></Border>
+
+                                <Border Width="250" Height="130" CornerRadius="20">
+                                    <Border.Background  >
+                                        <ImageBrush   Stretch="UniformToFill"  ImageSource="{Binding Path=ByteImage, TargetNullValue=defaultImage}"/>
+
+                                    </Border.Background>
+                                    <!--<Image  x:Name="ElImage">
+                                <Image.Source>
+                                    <Binding Path="ByteImage" TargetNullValue="{x:Null}"/>
+                                </Image.Source>
+                            </Image>-->
+
+                                </Border>
+                        
+                            
+                            
                                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
-                                    <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Наименования услуги"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Center"  FontSize="20" Text="{Binding Titel}"></TextBlock>
+                                    <TextBlock  HorizontalAlignment="Center" FontSize="20" Text="Наименования услуги"></TextBlock>
+                                    <TextBlock TextAlignment="Center" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  FontSize="20" Text="{Binding Titel}"></TextBlock>
                                     <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Стоимость"></TextBlock>
                                     <TextBlock HorizontalAlignment="Center"  FontSize="20" Text="{Binding Cost}"></TextBlock>
 
@@ -66,7 +81,7 @@
                                 <Border Width="250" Height="130" CornerRadius="20" Background="Black"></Border>
                                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
                                     <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Наименования услуги"></TextBlock>
-                                    <TextBlock HorizontalAlignment="Center"  FontSize="20" Text="{Binding Titel}"></TextBlock>
+                                    <TextBlock TextAlignment="Center" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  FontSize="20" Text="{Binding Titel}"></TextBlock>
                                     <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Стоимость"></TextBlock>
                                     <TextBlock HorizontalAlignment="Center"  FontSize="20" Text="{Binding Cost}"></TextBlock>
                                     <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Количетво месецов"></TextBlock>
