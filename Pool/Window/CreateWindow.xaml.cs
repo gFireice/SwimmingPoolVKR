@@ -17,7 +17,7 @@ namespace Pool.Window
     /// <summary>
     /// Логика взаимодействия для ClientWindow.xaml
     /// </summary>
-    public partial class ClientWindow : Window
+    public partial class ClientWindow 
     {
         public ClientWindow()
         {

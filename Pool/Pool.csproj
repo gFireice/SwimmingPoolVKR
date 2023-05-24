@@ -204,7 +204,7 @@
     <Resource Include="Image\uil_setting.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\No-photo-m.png" />
+    <Resource Include="Image\no-photo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" />

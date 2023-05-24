@@ -5,9 +5,97 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pool.Window"
         mc:Ignorable="d"
-        Title="ClientWindow" Background="#FF080B1B" MinHeight="650" MinWidth="450" MaxHeight="650" MaxWidth="450">
+        Title="ClientWindow" Background="#FF080B1B" MinHeight="550" MinWidth="450" MaxHeight="650" MaxWidth="450">
+    <Window.Resources>
+        <Style x:Key="ButtoEntry" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"></Setter>
+            <Setter Property="Foreground"  Value="#FF4C537D"></Setter>
+            <Setter Property="BorderBrush"  Value="#FF1F243E"></Setter>
+            <Setter Property="Background" Value="#FF131D54"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="5"
+                                BorderBrush="#FF1F243E" CornerRadius="5" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                        </Border>
+
+                        <ControlTemplate.Triggers >
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF080B4B" Duration="0:0:0.020"></ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF080B1B" Duration="0:0:0.020"></ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color" To="#FF1F246E" Duration="0:0:0.020"></ColorAnimation>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF080B3B" Duration="0:0:0.020"></ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color" To="#FF1F243E" Duration="0:0:0.020"></ColorAnimation>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FF131D54" Duration="0:0:0.020"></ColorAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox" >
+
+            <Setter Property="Foreground"  Value="#FF4C537D"></Setter>
+            <Setter Property="BorderBrush"  Value="#FF1F243E"></Setter>
+            <Setter Property="Background" Value="#FF131D54"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,0,0,0"></Setter>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Template">
+
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid x:Name="root"  SnapsToDevicePixels="True">
+                            <Border x:Name="Backgroundd" BorderThickness="3" CornerRadius="5" Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"></Border>
+                            <ScrollViewer  x:Name="PART_ContentHost" BorderThickness="0" 
+                                          IsTabStop="False"
+                                          Background="{x:Null}"
+                                          TextElement.Foreground="{TemplateBinding Foreground}"
+                                          Padding="{TemplateBinding Padding}"></ScrollViewer>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True" >
+                                <Setter Property="BorderBrush" Value="#FF1F246E"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -20,5 +108,44 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+
+        <Border  Margin="30 10 30 10" Grid.RowSpan="2" CornerRadius="20">
+            <Border.Background>
+                <ImageBrush ImageSource="/Image/no-photo.jpg" Stretch="UniformToFill"/>
+            </Border.Background>
+        </Border>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+            <WrapPanel Margin="0 0 0 10">
+                   <TextBlock FontSize="15" Text="Имя:" Foreground="White" ></TextBlock>
+                <TextBox Style="{StaticResource TextBoxStyle}" Height="20" Margin="2 0 0 0" Width="180"></TextBox>
+            </WrapPanel >
+            <WrapPanel Margin="0 0 0 10">
+                <TextBlock FontSize="15" Text="Фамилия:" Foreground="White"></TextBlock>
+                <TextBox Style="{StaticResource TextBoxStyle}" Height="20" Margin="2 0 0 0" Width="147"></TextBox>
+            </WrapPanel>
+            <WrapPanel Margin="0 0 0 10">
+                <TextBlock FontSize="15" Text="Отчество:" Foreground="White"></TextBlock>
+                <TextBox Style="{StaticResource TextBoxStyle}" Height="20" Margin="2 0 0 0" Width="145"></TextBox>
+            </WrapPanel>
+        </StackPanel>
+       
+        <TextBlock FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Text="ДатаРождения:" Foreground="White"></TextBlock>
+        <TextBox Margin="2 0 0 0"  HorizontalAlignment="Left" Width="200" Height="20" Style="{StaticResource TextBoxStyle}" Grid.Column="1" Grid.Row="2" ></TextBox>
+        <TextBlock FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Text="Телефон:" Foreground="White"></TextBlock>
+        <TextBox Margin="2 0 0 0" HorizontalAlignment="Left" Width="200" Height="20" Style="{StaticResource TextBoxStyle}" Grid.Column="1" Grid.Row="3" ></TextBox>
+        <TextBlock FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Text="Mail:" Foreground="White"></TextBlock>
+        <TextBox Margin="2 0 0 0" HorizontalAlignment="Left" Width="200" Height="20" Style="{StaticResource TextBoxStyle}" Grid.Column="1" Grid.Row="4" ></TextBox>
+        <TextBlock FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Text="ПаспортВыдан:" Foreground="White"></TextBlock>
+        <TextBox Margin="2 0 0 0" HorizontalAlignment="Left" Width="200" Height="20" Style="{StaticResource TextBoxStyle}" Grid.Column="1" Grid.Row="5" ></TextBox>
+        <TextBlock FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Text="Серия Паспорта:" Foreground="White"></TextBlock>
+        <TextBox Margin="2 0 0 0" HorizontalAlignment="Left" Width="200" Height="20" Style="{StaticResource TextBoxStyle}" Grid.Column="1" Grid.Row="6" ></TextBox>
+        <TextBlock FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="7" Text="КодПодразделения:" Foreground="White"></TextBlock>
+        <TextBox Margin="2 0 0 0" HorizontalAlignment="Left" Width="200" Height="20" Style="{StaticResource TextBoxStyle}" Grid.Column="1" Grid.Row="7" ></TextBox>
+        <TextBlock FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="8" Text="ДатаВыдачи:" Foreground="White"></TextBlock>
+        <TextBox Margin="2 0 0 0" HorizontalAlignment="Left" Width="200" Height="20" Style="{StaticResource TextBoxStyle}" Grid.Column="1" Grid.Row="8" ></TextBox>
+        <Button Grid.ColumnSpan="2" Grid.Row="10" Width="200" Height="30" Style="{StaticResource ButtoEntry}">
+            <TextBlock Text="Добавить" FontSize="15"></TextBlock>
+        </Button>
     </Grid>
 </Window>
